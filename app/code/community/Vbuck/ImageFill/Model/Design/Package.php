@@ -23,6 +23,24 @@ class Vbuck_ImageFill_Model_Design_Package
     extends Mage_Core_Model_Design_Package
 {
 
+    protected $_validImageExtensions = array(
+        'bmp', 'gif', 'jpg', 'jpeg', 'png', 'svg', 'wbmp',
+    );
+
+    /**
+     * Simple image type validation.
+     * 
+     * @param string $file A file path.
+     * 
+     * @return boolean
+     */
+    public function isImage($file)
+    {
+        $extension = strtolower((array_pop((explode('.', basename($file))))));
+
+        return in_array($extension, $this->_validImageExtensions);
+    }
+
     /**
      * Replace missing skin images with a placeholder.
      * 
@@ -36,7 +54,7 @@ class Vbuck_ImageFill_Model_Design_Package
         return parent::validateFile($file, $params);
         $filename = parent::validateFile($file, $params);
 
-        if (!$filename) {
+        if (!$filename && $this->isImage($file)) {
             return Mage::getStoreConfig('imagefill/general/placeholder_url');
         }
 
