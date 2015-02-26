@@ -33,6 +33,7 @@ class Vbuck_ImageFill_Model_Design_Package
      */
     public function validateFile($file, array $params)
     {
+        return parent::validateFile($file, $params);
         $filename = parent::validateFile($file, $params);
 
         if (!$filename) {
