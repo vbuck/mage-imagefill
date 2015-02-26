@@ -35,5 +35,16 @@
                 </rewrite>
             </core>
         </models>
+        <events>
+            <http_response_send_before>
+                <observers>
+                    <vbuck_imagefill_model_observer>
+                        <type>singleton</type>
+                        <class>imagefill/observer</class>
+                        <method>checkMediaImages</method>
+                    </vbuck_imagefill_model_observer>
+                </observers>
+            </http_response_send_before>
+        </events>
     </global>
 </config>
