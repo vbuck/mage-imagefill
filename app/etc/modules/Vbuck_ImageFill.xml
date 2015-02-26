@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+
+/**
+ * Image Fill development helper module.
+ *
+ * PHP Version 5
+ *
+ * @package   Vbuck_ImageFill
+ * @author    Rick Buczynski <me@rickbuczynski.com>
+ * @copyright 2015 Rick Buczynski
+ */
+
+-->
+<config>
+    <modules>
+        <Vbuck_ImageFill>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Vbuck_ImageFill>
+    </modules>
+</config>
